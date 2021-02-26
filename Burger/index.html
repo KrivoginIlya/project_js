@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#" id="burger_form">
+        <fieldset id="burger_fieldset">
+
+            <h3 id="burger_top">Собери свой бургерю</h3>
+            <fieldset class="burger_fieldset_inside">
+                <h4>Выерете размер бургера:</h4>
+                <img src="https://orderapp-staticgo.burgerking.ru/x512/mobile_image/7a9d0ca585dd75bb4bd3f640c0acaefb.webp"
+                    alt="small" width="100px"><br>
+                <input type="radio" name="size" id="bigburger" value="big" class="burger_input" data-price="100"
+                    data-calories="40" checked>
+                <label for="bigburger">Большой бургер: Цена 100руб; Калорий 40 </label> <br>
+                <img src="https://orderapp-staticgo.burgerking.ru/x512/mobile_image/0e8244bf664a4a42ec3be335001476a2.webp"
+                    alt="small" width="100px"><br>
+                <input type="radio" name="size" id="smallburger" value="Small" class="burger_input" data-price="50"
+                    data-calories="20">
+                <label for="smallburger">Маленький бургер: Цена 50руб; Калорий 20 </label> <br>
+            </fieldset>
+
+            <fieldset class="burger_fieldset_inside">
+                <h4>Выерете начинку бургера:</h4>
+                <input type="radio" name="add" id="cheese" value="Cheese" class="burger_input" data-price="10"
+                    data-calories="20">
+                <label for="cheese">Сыр: Цена +10руб; Калорий +20 </label> <br>
+                <input type="radio" name="add" id="salad" value="Salad" class="burger_input" data-price="20"
+                    data-calories="5">
+                <label for="salad">Салат: Цена +20руб; Калорий +5 </label> <br>
+                <input type="radio" name="add" id="tomato" value="Tomato" class="burger_input" data-price="20"
+                    data-calories="5">
+                <label for="tomato">Помидор: Цена +20руб; Калорий +5 </label> <br>
+                <input type="radio" name="add" id="not" value="Not" class="burger_input" data-price="0"
+                    data-calories="0">
+                <label for="not">Оставить без изменений</label> <br>
+            </fieldset>
+
+            <fieldset class="burger_fieldset_inside">
+                <h4>Добавить к бургеру:</h4>
+                <input type="radio" name="topings" id="seasoning" value="Spices" class="burger_input" data-price="15"
+                    data-calories="0">
+                <label for="seasoning">Специи: Цена +15руб; Калорий 0 </label> <br>
+                <input type="radio" name="topings" id="mayonnaise" value="Souse" class="burger_input" data-price="20"
+                    data-calories="5">
+                <label for="mayonnaise">Соус: Цена +20руб; Калорий +5 </label> <br>
+            </fieldset>
+
+            <button id="check" type="button">Собрать бургер</button>
+            <p id="result">Итоговая стоимость: <span id="price">0</span><br>
+                Количество калорий: <span id="calories">0</span></p>
+        </fieldset>
+    </form>
+
+    <script src="burgerCustom.js"></script>
+    <script>
+        window.onload = () => {
+
+            document.getElementById('check').addEventListener('click', () => {
+                let burger = new Burger('size', 'add', 'topings');
+                console.log(burger);
+                burger.showSum('#price', '#calories');
+            })
+        }
+    </script>
+
+
+</body>
+
+</html>
